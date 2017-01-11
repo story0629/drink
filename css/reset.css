@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+*{
+	font-family: "cairo",'Noto Sans TC', sans-serif;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body,h1,h2,h3,h4,h5,h6,p{
+	margin: 0;
+	padding: 0;
+}
+a,a:hover,a:active{
+	text-decoration: none!important;
+	font-family: 'Noto Sans TC','Noto Sans JP', sans-serif;	
+}
+img{
+	border: 0;
+	width: 100%;
+	vertical-align: top;
+}
+.clearfix::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.full-width{
+	width: 100%;
+}
