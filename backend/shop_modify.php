@@ -92,17 +92,25 @@
                                 <i class="fa fa-dashboard"></i> Dashboard
                             </li>
                         </ol>
-                        <a href="shop_add.php" class="btn btn-default">新增飲料店</a>
                     </div>
                 </div>
 
                 <!-- .table-responsive -->
-                    <form action="shop_modify_ok.php" class="myForm" method="post">
+                    <form action="shop_modify_ok.php" class="myForm" method="post" enctype="multipart/form-data">
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店名稱：</label><input type="text" name="shop" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["shop"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店電話：</label><input type="text" name="tel" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["tel"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店地址：</label><input type="text" name="address" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["address"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">分校id：</label><input type="text" name="scode" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["scode"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店id：</label><input type="text" name="pcode" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["pcode"] ?>"></div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">圖片上傳：</label>
+                                <?php if($row["image"]=="" || $row["image"]=="GG"){ ?>
+                                    <input type="file" name="images" class="col-md-8 col-sm-8 col-xs-8">
+                                <?php }else{ ?>
+                                    <img src="../images/<?php echo $row["image"]; ?>">
+                                    <a href="delete_shop_img.php?pid=<?php echo $row["pid"]; ?>&image=<?php echo $row["image"]; ?>" class="fa fa-times fa-lg"></a>
+                                <?php } ?>
+                        </div>
                         <input type="hidden" name="pid" value="<?php echo $row["pid"]; ?>">
                         <div class="col-md-6 col-md-offset-5">
                             <br>

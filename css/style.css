@@ -16,23 +16,16 @@
 }
 .section .button{
 	display: inline-block;
-	width: 100%;
 	vertical-align: middle;
 	text-align: center;
+	width: 100%;
 }
 .section .button a{
 	display: inline-block;
-	width: 200px;
-	height: 200px;
 	border-radius: 50%;
 	color: #ffe;
 	background-color: rgba(0,0,0,.3);
-	line-height: 200px;
 	vertical-align: middle;
-}
-.section #myForm {
-	width: 600px;
-	margin: auto;
 }
 .section #myForm input[type="text"]{
 	width: 100%;
@@ -57,4 +50,28 @@
 	width: 300px;
 	margin: auto;
 	color: #ffe;
+}
+@media screen and (min-width:768px){
+	.button a {	
+		width: 200px;
+		height: 200px;
+		line-height: 200px;
+		margin: 0 10px;
+	}
+	.section #myForm {
+		width: 600px;
+		margin: auto;
+	}
+}
+@media screen and (max-width:767px){
+	.button a {	
+		width: 150px;
+		height: 150px;
+		line-height: 150px;
+		margin: 0 10px;
+	}
+	.section #myForm {
+		width: 90%;
+		margin: auto;
+	}
 }

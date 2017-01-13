@@ -92,10 +92,11 @@
                         </ol>
                     </div>
                 </div>
-                    <form action="shop_add_ok.php" class="myForm" method="post">
+                    <form action="shop_add_ok.php" class="myForm" method="post" enctype="multipart/form-data">
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店名稱：</label><input type="text" placeholder="請輸入飲料店名稱" name="shop" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店電話：</label><input type="text" placeholder="請輸入飲料店電話" name="tel" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店地址：</label><input type="text" placeholder="請輸入飲料店地址" name="address" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店logo：</label><input type="file" name="images" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">分校id：</label><input type="text" placeholder="請輸入分校id，聯成的話請以lcc開頭，後面接上分校地點漢語拼音" name="scode" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店id：</label><input type="text" placeholder="請輸入飲料店id，請以飲料店英文名開頭，後面接上分校地點漢語拼音" name="pcode" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="col-md-6 col-md-offset-5">

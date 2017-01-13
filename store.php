@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <meta name="viewport" content="width=device-width">
     <meta charset="UTF-8">
     <title>請選擇飲料店_飲料訂購系統_STEP2</title>
     <link rel="icon" type="image/svg" href="images/logo.svg">
@@ -19,7 +20,7 @@
         <p>請選擇飲料店</p>
         <div class="button">
             <?php while ($row = mysql_fetch_assoc($result)) { ?>
-            	<a href="menu.php?pcode=<?php echo $row["pcode"]; ?>&scode=<?php echo $row["scode"] ?>"><?php echo $row["shop"]; ?></a>
+            	<a href="menu.php?pcode=<?php echo $row["pcode"]; ?>&scode=<?php echo $row["scode"] ?>"><img src="images/<?php echo $row["image"]; ?>"></a>
             <?php } ?>
         </div>
     </div>

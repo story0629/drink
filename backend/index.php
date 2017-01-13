@@ -5,6 +5,9 @@
     if(!isset($_SESSION["USER"])){ 
         header("Location:login.php");
     }
+    $sql_sum = "SELECT SUM(total) FROM `order`";
+    $result_sum = mysql_query($sql_sum);
+    $row_sum = mysql_fetch_assoc($result_sum);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,6 +158,7 @@
                     </table>
                 </div>
                 <!-- .table-responsive -->
+                    <div class="col-md-4 col-md-offset-8">今日飲料金額：<?php echo $row_sum["total"] ?></div>
             </div>
             <!-- /.container-fluid -->
 

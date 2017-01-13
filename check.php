@@ -19,6 +19,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <meta name="viewport" content="width=device-width">
 	<meta charset="UTF-8">
 	<title>請確認是否正確_飲料訂購系統_STEP4</title>
     <link rel="icon" type="image/svg" href="images/logo.svg">

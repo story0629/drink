@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <meta name="viewport" content="width=device-width">
     <meta charset="UTF-8">
     <title>請選擇要喝什麼_飲料訂購系統_STEP3</title>
     <link rel="icon" type="image/svg" href="images/logo.svg">

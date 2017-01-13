@@ -6,9 +6,10 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <meta name="viewport" content="width=device-width">
     <meta charset="UTF-8">
     <title>上課就是要訂飲料啊!!!</title>
-    <link rel="icon" type="image/svg" href="images/logo.svg">
+    <link rel="icon" type="image/svg" href="images/logo.svg" sizes="16x16">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
