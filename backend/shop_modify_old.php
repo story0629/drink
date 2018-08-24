@@ -1,7 +1,9 @@
 <?php 
     require_once("connect_database.php");
-    $sql = "SELECT * FROM `drink_menu`";
+    $pid = $_GET["pid"];
+    $sql = "SELECT * FROM `shop` WHERE pid='$pid'";
     $result = mysql_query($sql);
+    $row = mysql_fetch_assoc($result);
     if(!isset($_SESSION["USER"])){ 
         header("Location:login.php");
     }
@@ -59,10 +61,10 @@
                     <li>
                         <a href="scholl.php"><i class="fa fa-fw fa-bar-chart-o"></i>查看分校選項</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="shop.php"><i class="fa fa-fw fa-table"></i>查看飲料店選項</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="menu.php"><i class="fa fa-fw fa-edit"></i>查看飲料店MENU</a>
                     </li>
                     <li>
@@ -84,50 +86,39 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            查看飲料店MENU<small><!-- Statistics Overview --></small>
+                            查看飲料店<small><!-- Statistics Overview --></small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> Dashboard
                             </li>
                         </ol>
-                        <a href="menu_add.php" class="btn btn-default">新增menu</a>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <table class="container table">
-                        <tr>
-                            <td>id</td>
-                            <td>飲料名稱</td>
-                            <td>飲料size1</td>
-                            <td>飲料price1</td>
-                            <td>飲料size2</td>
-                            <td>飲料price2</td>
-                            <td>飲料size3</td>
-                            <td>飲料price3</td>
-                            <td>飲料店id</td>
-                            <td>修改</td>
-                            <td>刪除</td>
-                        </tr>
-                        <?php while($row = mysql_fetch_assoc($result)) { ?>
-                        <tr>
-                            <td><?php echo $row["mid"]; ?></td>
-                            <td><?php echo $row["menu"]; ?></td>
-                            <td><?php echo $row["size1"]; ?></td>
-                            <td><?php echo $row["price1"]; ?></td>
-                            <td><?php echo $row["size2"]; ?></td>
-                            <td><?php echo $row["price2"]; ?></td>
-                            <td><?php echo $row["size3"]; ?></td>
-                            <td><?php echo $row["price3"]; ?></td>
-                            <td><?php echo $row["pcode"]; ?></td>
-                            <!-- <td><a href="menu_modify.php?mid=<?php# echo $row["mid"]; ?>">修改</a></td> -->
-                            <td><a href="menu_modify.php?mid=<?php echo $row["mid"]; ?>" id="mmm_<?php echo $row["mid"]; ?>" class="modify">修改</a></td>
-                            <td><a href="javascript:;" id="<?php echo $row["mid"]; ?>" class="del">刪除</a></td>
-                        </tr>
-                        <?php } ?>
-                    </table>
-                </div>
+
                 <!-- .table-responsive -->
+                    <form action="shop_modify_ok.php" class="myForm" method="post" enctype="multipart/form-data">
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店名稱：</label><input type="text" name="shop" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["shop"] ?>"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店電話：</label><input type="text" name="tel" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["tel"] ?>"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店地址：</label><input type="text" name="address" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["address"] ?>"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">分校id：</label><input type="text" name="scode" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["scode"] ?>"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店id：</label><input type="text" name="pcode" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["pcode"] ?>"></div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">圖片上傳：</label>
+                                <?php if($row["image"]=="" || $row["image"]=="GG"){ ?>
+                                    <input type="file" name="images" class="col-md-8 col-sm-8 col-xs-8">
+                                <?php }else{ ?>
+                                    <img src="../images/<?php echo $row["image"]; ?>">
+                                    <a href="delete_shop_img.php?pid=<?php echo $row["pid"]; ?>&image=<?php echo $row["image"]; ?>" class="fa fa-times fa-lg"></a>
+                                <?php } ?>
+                        </div>
+                        <input type="hidden" name="pid" value="<?php echo $row["pid"]; ?>">
+                        <div class="col-md-6 col-md-offset-5">
+                            <br>
+                            <input type="submit" value="送出" class="btn btn-default">
+                            <input type="button" value="返回上頁" onclick="history.back()" class="btn btn-default">
+                        </div>
+                    </form>
             </div>
             <!-- /.container-fluid -->
 
@@ -138,30 +129,6 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script type="text/javascript">
-        $(function(){
-            $(".del").click(function(){
-                var mid = $(this).attr("id");
-                var data = "mid="+mid
-                if(confirm("確認刪除")){
-                    $.ajax({
-                        url: "menu_deelete.php",
-                        type: "get",
-                        data: data,
-                        beforeSend: function(e){
-                            $("#"+mid).parents("tr").fadeOut(function(){
-                                $(this).remove();
-                            });
-                        },
-                        success: function(e){},
-                        error: function(){
-                            console.log("error")
-                        }
-                    })
-                }
-            })
-        })
-    </script>
 </body>
 
 </html>

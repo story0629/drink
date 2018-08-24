@@ -7,6 +7,23 @@
 	$surger = $_POST["surger"];
 	$ice = $_POST["ice"];
 	$goods = $_POST["goods"];
+	if ($name=="") {
+		header("Location:menu.php?pcode=$pcode&scode=$scode&error=1");
+	}
+	if($pcode == "50arasi_Zongxiao" || $pcode == "50arasi_Gongguan"){
+		$big_menu = strpos($menu,"大杯");
+		$big_goods = strpos($goods,"大杯");
+		$small_menu = strpos($menu,"中杯");
+		$small_goods = strpos($goods,"中杯");
+		if($small_menu>0 && $big_goods>0){
+			header("Location:menu.php?pcode=$pcode&scode=$scode&error=2");
+			// echo "飲料選擇中杯加料選擇大杯";
+		}
+		if($big_menu>0 && $small_goods>0){
+			header("Location:menu.php?pcode=$pcode&scode=$scode&error=3");
+			// echo "飲料選擇大杯加料選擇中杯";
+		}
+	}
 	$sql_menu = "SELECT * FROM `drink_menu` WHERE menu='$menu'";
 	$result_menu = mysql_query($sql_menu);
 	$row_menu = mysql_fetch_assoc($result_menu);

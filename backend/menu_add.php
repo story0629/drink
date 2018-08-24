@@ -16,6 +16,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/sb-admin.css" rel="stylesheet">
     <link href="../css/plugins/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -94,7 +95,12 @@
                 </div>
                     <form action="menu_add_ok.php" class="myForm" method="post">
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料名稱：</label><input type="text" placeholder="請輸入飲料名稱" name="menu" class="col-md-8 col-sm-8 col-xs-8"></div>
-                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料價格：</label><input type="text" placeholder="請輸入飲料價格" name="price" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料size1：</label><input type="text" placeholder="請輸入飲料尺寸1" name="size1" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料price1：</label><input type="text" placeholder="請輸入飲料金額1" name="price1" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料size2：</label><input type="text" placeholder="請輸入飲料尺寸2" name="size2" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料price2：</label><input type="text" placeholder="請輸入飲料金額2" name="price2" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料size3：</label><input type="text" placeholder="請輸入飲料尺寸3" name="size3" class="col-md-8 col-sm-8 col-xs-8"></div>
+                        <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料price3：</label><input type="text" placeholder="請輸入飲料金額3" name="price3" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店id：</label><input type="text" placeholder="請輸入飲料店id" name="pcode" class="col-md-8 col-sm-8 col-xs-8"></div>
                         <div class="col-md-6 col-md-offset-5">
                             <br>

@@ -18,6 +18,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/sb-admin.css" rel="stylesheet">
     <link href="../css/plugins/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -96,28 +97,58 @@
                 </div>
 
                 <!-- .table-responsive -->
-                    <form action="shop_modify_ok.php" class="myForm" method="post" enctype="multipart/form-data">
+                    <form action="shop_modify_ok.php" class="myForm" method="post">
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店名稱：</label><input type="text" name="shop" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["shop"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店電話：</label><input type="text" name="tel" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["tel"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店地址：</label><input type="text" name="address" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["address"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">分校id：</label><input type="text" name="scode" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["scode"] ?>"></div>
                         <div class="form-group"><label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">飲料店id：</label><input type="text" name="pcode" class="col-md-8 col-sm-8 col-xs-8" value="<?php echo $row["pcode"] ?>"></div>
-                        <div class="form-group">
-                            <label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">圖片上傳：</label>
-                                <?php if($row["image"]=="" || $row["image"]=="GG"){ ?>
-                                    <input type="file" name="images" class="col-md-8 col-sm-8 col-xs-8">
-                                <?php }else{ ?>
-                                    <img src="../images/<?php echo $row["image"]; ?>">
-                                    <a href="delete_shop_img.php?pid=<?php echo $row["pid"]; ?>&image=<?php echo $row["image"]; ?>" class="fa fa-times fa-lg"></a>
-                                <?php } ?>
-                        </div>
                         <input type="hidden" name="pid" value="<?php echo $row["pid"]; ?>">
-                        <div class="col-md-6 col-md-offset-5">
+                        <div class="col-md-6 col-md-offset-5 form-group">
                             <br>
                             <input type="submit" value="送出" class="btn btn-default">
                             <input type="button" value="返回上頁" onclick="history.back()" class="btn btn-default">
                         </div>
                     </form>
+                    <div class="container">
+                        <label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">LOGO上傳：</label>
+                            <?php if($row["image"]=="" || $row["image"]=="GG"){ ?>
+                                <form action="shop_img_modify.php?pid=<?php echo $row["pid"]; ?>" enctype="multipart/form-data" method="post">
+                                    <div class="form-group"><input type="file" name="photo"></div>
+                                    <input type="hidden" name="i" value="01">
+                                    <div><input type="submit" value="送出" class="btn btn-default"></div>
+                                </form>
+                            <?php }else{ ?>
+                                <div class="col-md-2 col-sm-4 col-xs-4"><img src="../images/<?php echo $row["image"]; ?>"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2"><a href="delete_shop_img.php?pid=<?php echo $row["pid"]; ?>&image=<?php echo $row["image"]; ?>" class="fa fa-times fa-lg"></a></div>
+                            <?php } ?>
+                    </div>
+                    <div class="container">
+                        <label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">MENU1上傳：</label>
+                            <?php if($row["menu1"]=="" || $row["menu1"]=="GG"){ ?>
+                                <form action="shop_img_modify.php?pid=<?php echo $row["pid"]; ?>" enctype="multipart/form-data" method="post">
+                                    <div class="col-md-2 form-group"><input type="file" name="photo"></div>
+                                    <input type="hidden" name="i" value="02">
+                                    <div class="col-md-4"><input type="submit" value="送出" class="btn btn-default"></div>
+                                </form>
+                            <?php }else{ ?>
+                                <div class="col-md-2 col-sm-4 col-xs-4"><img src="../images/<?php echo $row["menu1"]; ?>"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2"><a href="delete_shop_img.php?pid=<?php echo $row["pid"]; ?>&image=<?php echo $row["image"]; ?>" class="fa fa-times fa-lg"></a></div>
+                            <?php } ?>
+                    </div>
+                    <div class="container">
+                        <label class="col-md-2 col-md-offset-1 col-sm-3 col-xs-4">MENU2上傳：</label>
+                            <?php if($row["menu2"]=="" || $row["menu2"]=="GG"){ ?>
+                                <form action="shop_img_modify.php?pid=<?php echo $row["pid"]; ?>" enctype="multipart/form-data" method="post">
+                                    <div class="col-md-2 form-group"><input type="file" name="photo"></div>
+                                    <input type="hidden" name="i" value="01">
+                                    <div class="col-md-4"><input type="submit" value="送出" class="btn btn-default"></div>
+                                </form>
+                            <?php }else{ ?>
+                                <div class="col-md-2 col-sm-4 col-xs-4"><img src="../images/<?php echo $row["menu2"]; ?>"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-2"><a href="delete_shop_img.php?pid=<?php echo $row["pid"]; ?>&image=<?php echo $row["image"]; ?>" class="fa fa-times fa-lg"></a></div>
+                            <?php } ?>
+                    </div>
             </div>
             <!-- /.container-fluid -->
 

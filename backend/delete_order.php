@@ -3,5 +3,5 @@
 	$id = $_GET["id"];
 	$sql = "DELETE FROM `order` WHERE id=$id";
 	mysql_query($sql);
-	header("Location:index.php");
+	// header("Location:index.php");
  ?>

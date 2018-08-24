@@ -2,6 +2,9 @@
 	require_once("connect_database.php");
     $pcode = $_GET["pcode"];
 	$scode = $_GET["scode"];
+    $sql_shop = "SELECT * FROM `shop` WHERE pcode = '$pcode'";
+    $result_shop = mysql_query($sql_shop);
+    $row_shop = mysql_fetch_assoc($result_shop);
 	$sql = "SELECT * FROM `drink_menu` WHERE pcode = '$pcode'";
 	$result = mysql_query($sql);
     $sql_goods = "SELECT * FROM `goods` WHERE pcode = '$pcode'";
@@ -16,13 +19,47 @@
     <link rel="icon" type="image/svg" href="images/logo.svg">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script>
+        $(function(){
+            $(".fancy").fancybox({
+                padding:10,
+                openEffect:"elastic",
+                closeEffect:"elastic",
+                nextEffect:"fade",
+                prevEffect:"fade",
+                openEasing:"easeOutBack",
+                openSpeed:500,
+                helpers:{
+                    overlay:{
+                        css:{
+                            "background":"rgba(0,0,0,.8)"
+                        }
+                    }
+                }
+            })
+        })
+    </script>
 </head>
 <body>
     <div class="section">
         <h1>飲料訂購系統_STEP3</h1>
         <p>請選擇要喝什麼??</p>
+        <?php if(isset($_GET["error"]) && $_GET["error"]==1){ ?>
+            <p>請輸入姓名!!</p>
+        <?php } ?>
+        <?php if(isset($_GET["error"]) && $_GET["error"]==2){ ?>
+            <p>你選了大杯的飲料，加料卻選中杯，請修正!!</p>
+        <?php } ?>
+        <?php if(isset($_GET["error"]) && $_GET["error"]==3){ ?>
+            <p>你選了中杯的飲料，加料卻選大杯，請修正!!</p>
+        <?php } ?>
         <form action="check.php" method="post" id="myForm">
             <div><input type="text" placeholder="請輸入姓名" name="name"></div>
+            <div class="memenu"><a href="images/<?php echo $row_shop["menu1"] ?>" class="fancy" rel="aaa">飲料店推薦</a><a href="images/<?php echo $row_shop["menu2"] ?>" class="fancy" rel="aaa">價目表</a></div>    
             <div>
                 <select name="menu" id="menu" onchange="update()">
                         <option value="">請選擇要喝什麼</option>

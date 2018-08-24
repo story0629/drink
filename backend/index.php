@@ -18,10 +18,18 @@
     <title>後台</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/sb-admin.css" rel="stylesheet">
+    <link href="../css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="../css/plugins/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#myTable").DataTable();
+        })
+    </script>
 </head>
 
 
@@ -96,11 +104,12 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="container table">
+                    <table class="container table" id="myTable">
                         <tr>
                             <td>id</td>
                             <td>姓名</td>
                             <td>飲料</td>
+                            <td>尺寸</td>
                             <td>甜度</td>
                             <td>冰塊</td>
                             <td>加料</td>
@@ -111,13 +120,14 @@
                             <td>分校</td>
                             <td>飲料店</td>
                             <td>電話</td>
-                            <td>刪除</td>
+                            <td><a href="delete_order_all.php" onclick="return confirm('是否刪除???')">全部刪除</td>
                         </tr>
                         <?php while($row = mysql_fetch_assoc($result)) { ?>
                         <tr>
                             <td><?php echo $row["id"]; ?></td>
                             <td><?php echo $row["name"]; ?></td>
                             <td><?php echo $row["menu"]; ?></td>
+                            <td><?php echo $row["size"]; ?></td>
                             <td><?php echo $row["surger"]; ?></td>
                             <td><?php echo $row["ice"]; ?></td>
                             <td><?php echo $row["goods"]; ?></td>
@@ -152,7 +162,7 @@
                                     echo $row_p["tel"];
                                 ?>
                             </td>
-                            <td><a href="delete_order.php?id=<?php echo $row["id"]; ?>">刪除</a></td>
+                            <td><a href="delete_order.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('是否刪除???')">刪除</a></td>
                         </tr>
                             <?php } ?>
                     </table>

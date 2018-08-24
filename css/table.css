@@ -1,0 +1,99 @@
+.buttons {
+	font-size: 0;
+	position: relative;
+	/*left: -18vw;*/
+	margin-top: 20px;
+	margin-bottom: 10px;
+	/*width: 1080px;*/
+}
+.buttons a {
+	display: inline-block;
+	height: 30px;
+	padding: 5px 20px;
+	background-image:  linear-gradient(180deg,#eef2f3,#ACC0D0);
+	font-size: 14px;
+	color: #000;
+	margin: 0 3px;
+	transition: all 0.6s;
+}
+.buttons a:hover {
+	background-image:  linear-gradient(720deg,#eef2f3,#8e9eab);
+}
+.buttons input[type="text"] {
+	width: 325px!important;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+#grid {
+	/*width: 1080px;*/
+	position: relative;
+	/*left: -18vw;*/
+	font-size: 0;
+	margin-bottom: 20px;
+}
+#grid .box{
+	padding: 6px 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	/*width: 160px;*/
+	/*height: 38px;*/
+	display: inline-block;
+	font-size: 12px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	position: relative;
+	cursor: pointer;
+}
+#grid .tea{
+	/*background-image: linear-gradient(0deg,#3CA55C,#B5AC49)*/
+	background-color: #A8E6CF;
+}
+#grid .milkTea{
+	/*background-image: linear-gradient(180deg,#eacda3,#d6ae7b);*/
+	background-color: #DCEDC1;
+}
+#grid .fruit{
+	/*background-image: linear-gradient(180deg,#E1F5C4,#EDE574);*/
+	background-color: #FFD3B6;
+}
+#grid .fruitTea{
+	/*background-image: linear-gradient(0deg,#db36a4,#f7ff00);*/
+	background-color: #FFAAA5;
+}
+#grid .bubble{
+	/*background-image: linear-gradient(180deg,#FF8235,#30E8BF);*/
+	background-color: #1AA59A;
+}
+#grid .melon{
+	/*background-image: linear-gradient(180deg,#e9d362,#666666);*/
+	background-color: #A6ED8E;
+}
+#grid .other{
+	/*background-image: linear-gradient(180deg,#74ebd5,#ACB6E5);*/
+	background-color:#F3FFB9;
+}
+#grid select {
+	/*border-radius: 0!important;*/
+	border: none;
+	-webkit-box-shadow: 0px 0px 1px rgba(0,0,0,.2);
+	box-shadow: 0px 0px 1px rgba(0,0,0,.2);
+	background-color: transparent;
+	transition: all 0.5s;
+}
+.section #myForm input[type="submit"]{
+	margin-bottom: 20px;
+}
+#drinkk {
+	color: #ffe;
+	margin-bottom: 15px;
+}
+.error_message {
+	text-align: center;
+	color: #fffffe;
+	font-size: 20px;
+}
